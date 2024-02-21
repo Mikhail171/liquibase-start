@@ -22,7 +22,11 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional
     public void createCar(CreateCar createCar) {
-        carRepository.save(carMapper.toCarEntity(createCar));
+        try {
+            carRepository.save(carMapper.toCarEntity(createCar));
+        } catch (Exception ex) {
+            throw new ValidationException("ValidationException");
+        }
     }
 
     public void veryHardWork(CreateCar createCar) {
@@ -34,6 +38,7 @@ public class CarServiceImpl implements CarService {
             throw new MaxPriceExceededException("MaxPriceExceededException");
         }
 
+        carRepository.save(carMapper.toCarEntity(createCar));
         log.info("Success!");
     }
 }

@@ -1,6 +1,5 @@
 package ru.kismi.springliquibasestart.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +14,7 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping("/")
-    public void saveCar(@RequestBody @Valid CreateCar createCar) {
+    public void saveCar(@RequestBody CreateCar createCar) {
         carService.createCar(createCar);
     }
 
