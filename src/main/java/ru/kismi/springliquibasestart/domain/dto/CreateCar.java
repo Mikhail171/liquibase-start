@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateCar {
 
-//    @Size(max = 5)
+    @Size(max = 5)
     private String name;
 
     private Long price;
